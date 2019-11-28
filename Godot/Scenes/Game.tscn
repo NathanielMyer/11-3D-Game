@@ -1,0 +1,253 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://Scripts/Camera.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Player2.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/HealthBar_2.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scripts/HealthBar_2.gd" type="Script" id=5]
+[ext_resource path="res://Scenes/Health_1.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scripts/HealthBar.gd" type="Script" id=7]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 9.945, 0.013, 19.83 )
+
+[sub_resource type="PlaneMesh" id=2]
+size = Vector2( 24, 16 )
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_color = Color( 0.0235294, 0.72549, 0.117647, 1 )
+
+[sub_resource type="PlaneMesh" id=4]
+size = Vector2( 24, 12 )
+
+[sub_resource type="SpatialMaterial" id=5]
+albedo_color = Color( 0.560784, 0.360784, 0.184314, 1 )
+
+[sub_resource type="CubeMesh" id=6]
+size = Vector3( 1.5, 0.3, 0.7 )
+
+[sub_resource type="SpatialMaterial" id=7]
+albedo_color = Color( 0.968627, 0, 1, 1 )
+
+[sub_resource type="BoxShape" id=8]
+extents = Vector3( 0.75, 0.15, 0.35 )
+
+[sub_resource type="SpatialMaterial" id=10]
+albedo_color = Color( 0.560784, 0.360784, 0.184314, 1 )
+
+[sub_resource type="CubeMesh" id=9]
+material = SubResource( 10 )
+size = Vector3( 0.5, 12, 12 )
+
+[sub_resource type="BoxShape" id=11]
+extents = Vector3( 0.292019, 5.94242, 5.99053 )
+
+[sub_resource type="CubeMesh" id=12]
+size = Vector3( 0.5, 14, 12 )
+
+[sub_resource type="SpatialMaterial" id=13]
+albedo_color = Color( 0.560784, 0.360784, 0.184314, 1 )
+
+[sub_resource type="BoxShape" id=14]
+extents = Vector3( 0.292, 7.4911, 5.991 )
+
+[node name="Game" type="Node"]
+
+[node name="Map" type="Spatial" parent="."]
+editor/display_folded = true
+
+[node name="Floor" type="StaticBody" parent="Map"]
+editor/display_folded = true
+
+[node name="CollisionShape" type="CollisionShape" parent="Map/Floor"]
+transform = Transform( 1.21, 0, 0, 0, 1, 0, 0, 0, 0.3, 0, 0, 2.97361 )
+shape = SubResource( 1 )
+
+[node name="Floor" type="MeshInstance" parent="Map/Floor"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.114113, -0.1665, 4.99768 )
+mesh = SubResource( 2 )
+material/0 = SubResource( 3 )
+
+[node name="Wall" type="MeshInstance" parent="Map"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-008, -1, 0, 1, -4.37114e-008, -0.00227547, 5.85386, -2.99721 )
+mesh = SubResource( 4 )
+material/0 = SubResource( 5 )
+
+[node name="Platform" type="StaticBody" parent="Map"]
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.373488, 0, 0 )
+
+[node name="PlatformMesh" type="MeshInstance" parent="Map/Platform"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.10132, 1.20335, -0.510185 )
+mesh = SubResource( 6 )
+material/0 = SubResource( 7 )
+
+[node name="PlatformCollision" type="CollisionShape" parent="Map/Platform"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.09832, 1.20502, -0.50596 )
+shape = SubResource( 8 )
+
+[node name="Platform2" type="StaticBody" parent="Map"]
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.82176, 0, 0 )
+
+[node name="PlatformMesh" type="MeshInstance" parent="Map/Platform2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.10132, 1.20335, -0.510185 )
+mesh = SubResource( 6 )
+material/0 = SubResource( 7 )
+
+[node name="PlatformCollision" type="CollisionShape" parent="Map/Platform2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.09832, 1.20502, -0.50596 )
+shape = SubResource( 8 )
+
+[node name="Platform3" type="StaticBody" parent="Map"]
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.05481, 1.83018, 0 )
+
+[node name="PlatformMesh" type="MeshInstance" parent="Map/Platform3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.10132, 1.20335, -0.510185 )
+mesh = SubResource( 6 )
+material/0 = SubResource( 7 )
+
+[node name="PlatformCollision" type="CollisionShape" parent="Map/Platform3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.09832, 1.20502, -0.50596 )
+shape = SubResource( 8 )
+
+[node name="Platform4" type="StaticBody" parent="Map"]
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.48298, 2.85799, 0 )
+
+[node name="PlatformMesh" type="MeshInstance" parent="Map/Platform4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.10132, 1.20335, -0.510185 )
+mesh = SubResource( 6 )
+material/0 = SubResource( 7 )
+
+[node name="PlatformCollision" type="CollisionShape" parent="Map/Platform4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.09832, 1.20502, -0.50596 )
+shape = SubResource( 8 )
+
+[node name="Platform5" type="StaticBody" parent="Map"]
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1501, 2.87622, 0 )
+
+[node name="PlatformMesh" type="MeshInstance" parent="Map/Platform5"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.10132, 1.20335, -0.510185 )
+mesh = SubResource( 6 )
+material/0 = SubResource( 7 )
+
+[node name="PlatformCollision" type="CollisionShape" parent="Map/Platform5"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.09832, 1.20502, -0.50596 )
+shape = SubResource( 8 )
+
+[node name="Platform6" type="StaticBody" parent="Map"]
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.09393, 4.64767, 0 )
+
+[node name="PlatformMesh" type="MeshInstance" parent="Map/Platform6"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.10132, 1.20335, -0.510185 )
+mesh = SubResource( 6 )
+material/0 = SubResource( 7 )
+
+[node name="PlatformCollision" type="CollisionShape" parent="Map/Platform6"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.09832, 1.20502, -0.50596 )
+shape = SubResource( 8 )
+
+[node name="Barrier" type="StaticBody" parent="Map"]
+editor/display_folded = true
+
+[node name="CSGMesh" type="CSGMesh" parent="Map/Barrier"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.14737, 5.85251, 3.02196 )
+mesh = SubResource( 9 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Map/Barrier"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.22687, 5.93831, 3.02488 )
+shape = SubResource( 11 )
+
+[node name="Barrier2" type="StaticBody" parent="Map"]
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.4172, 0, 0 )
+
+[node name="CSGMesh" type="CSGMesh" parent="Map/Barrier2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.14737, 5.85251, 3.02196 )
+mesh = SubResource( 9 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Map/Barrier2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.22687, 5.93831, 3.02488 )
+shape = SubResource( 11 )
+
+[node name="Ceiling" type="StaticBody" parent="Map"]
+editor/display_folded = true
+
+[node name="CeilingMesh" type="MeshInstance" parent="Map/Ceiling"]
+transform = Transform( -4.37114e-008, 1, 0, -1, -4.37114e-008, 0, 0, 0, 1, -0.031354, 7.62667, 3.06186 )
+mesh = SubResource( 12 )
+material/0 = SubResource( 13 )
+
+[node name="CeilingCollision" type="CollisionShape" parent="Map/Ceiling"]
+transform = Transform( -4.37114e-008, 1, 0, -1, -4.37114e-008, 0, 0, 0, 1, 0, 7.56108, 2.97435 )
+shape = SubResource( 14 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.986858, 0.161592, 0, -0.161592, 0.986858, 0, 1.38994, 2.049 )
+script = ExtResource( 1 )
+
+[node name="Player" parent="Camera" groups=[
+"actors",
+] instance=ExtResource( 2 )]
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 0.984808, -0.173648, 0, 0.173648, 0.984808, -1.16294, -0.0975451, -2.65199 )
+
+[node name="Spike" parent="Camera/Player" index="2"]
+transform = Transform( -1, 8.74228e-008, 0, -8.74228e-008, -1, 1.86265e-009, -1.11022e-016, 1.86265e-009, 1, 0.00575912, -0.365867, 0.00235415 )
+
+[node name="Player2" parent="Camera" groups=[
+"actors",
+] instance=ExtResource( 3 )]
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 0.984809, -0.173648, 0, 0.173648, 0.984809, 1.44378, 0.042393, -2.62649 )
+
+[node name="Spike2CollisionShape" parent="Camera/Player2" index="3"]
+transform = Transform( -1, 8.74228e-008, 0, -8.74228e-008, -1, -9.31323e-010, 0, -9.31323e-010, 1, 0.00377071, -0.253814, 0.11958 )
+
+[node name="RedLight" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.63311, 4.64728, -0.308412 )
+light_color = Color( 1, 0, 0, 1 )
+light_energy = 6.66
+omni_range = 13.7
+omni_attenuation = 4.43827
+
+[node name="BlueLight" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.98828, 4.46216, -0.308412 )
+light_color = Color( 0, 0, 1, 1 )
+light_energy = 15.23
+omni_range = 13.7
+omni_attenuation = 4.43827
+
+[node name="HUD" type="CanvasLayer" parent="."]
+editor/display_folded = true
+
+[node name="Interface" type="Control" parent="HUD"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Node2D" type="Node2D" parent="HUD/Interface"]
+scale = Vector2( 1.5, 1.5 )
+
+[node name="HealthBar2" parent="HUD/Interface/Node2D" instance=ExtResource( 4 )]
+margin_left = 802.114
+margin_top = 64.0
+margin_right = 842.114
+margin_bottom = 104.0
+script = ExtResource( 5 )
+
+[node name="HealthBar" parent="HUD/Interface/Node2D" instance=ExtResource( 6 )]
+margin_left = 85.3333
+margin_top = 64.0
+margin_right = 125.333
+margin_bottom = 104.0
+script = ExtResource( 7 )
+[connection signal="health_updated" from="Camera/Player" to="HUD/Interface/Node2D/HealthBar" method="_on_Player_health_updated"]
+[connection signal="health_updated" from="Camera/Player2" to="HUD/Interface/Node2D/HealthBar2" method="_on_Player2_health_updated"]
+
+[editable path="Camera/Player"]
+
+[editable path="Camera/Player2"]
